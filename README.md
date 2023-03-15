@@ -1,7 +1,7 @@
 
 <div align="center">
   <h1>music.thibokuijpers.be</h1>
-  Under Development with the first version
+  <h2 First version under development</h2>
 </div>
 
 <div align="center">
