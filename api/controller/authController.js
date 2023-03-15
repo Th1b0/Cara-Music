@@ -1,7 +1,8 @@
 const { httpError } = require("../helper/httpError");
 const axios = require("axios");
 const qs = require("qs");
-
+const dotenv = require("dotenv");
+dotenv.config();
 const client_secret = process.env.client_secret;
 const client_id = process.env.client_id;
 const callback_url = process.env.callback_url;
