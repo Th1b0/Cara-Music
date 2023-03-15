@@ -45,7 +45,7 @@ The application works by querying the Spotify API for the user's playlists and t
 
 ## How to Use It
 
-Users can access the application by visiting the website at music.thibokuijpers.be.
+Users can access the application by visiting the website at [music.thibokuijpers.be](https://music.thibokuijpers.be).
 
 ![](https://img.shields.io/website?down_color=red&down_message=ofline&label=music.thibokuijpers.be&style=for-the-badge&up_color=dark%20green&up_message=online&url=https%3A%2F%2Fmusic.thibokuijpers.be)
 
