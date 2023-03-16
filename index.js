@@ -21,7 +21,9 @@ app.listen(PORT, () => {
     if (err) {
       console.error(err);
     } else {
-      console.log(`The current branch is ${stdout}`);
+      console.log(
+        `The current branch is ${stdout}and is used to develop new feautures. It may be unstable or incomplete.`
+      );
     }
   });
 });
