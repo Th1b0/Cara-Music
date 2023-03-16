@@ -68,13 +68,12 @@ Ensure that you have the latest stable version of Node.js and npm installed.
 
 1. Clone the Git repository: `git clone https://github.com/Th1b0/spotify.thibokuijpers.be.git`.
 2. Download all necessary packages for the app: `npm install`.
-3. Obtain a client ID and secret ID from Spotify and update the values in `/api/controller/authController.js:5`.
-4. Lastly update the callback url to the url you wish to use for the app for example `https://example.com/api/auth/callback` or `https://192.168.1.1/api/auth/callback`.
-
+3. Obtain a client ID and secret ID from Spotify.
+4. Lastly create a file called .env in the root folder and insert these items 
 ```js
-const client_secret = "HERE_COMES_CLIENTSECRET";
-const client_id = "HERE_COMES_CLIENTID";
-const callback_url = "http://localhost:3000/api/auth/callback";
+client_secret = HERE_COMES_CLIENT_SECRET
+client_id = HERE_COMES_CLIENT_ID
+callback_url = http(s)://IP_OR_DOMAIN/api/auth/callback
 ```
 > To get a client ID and secret ID from Spotify, follow this guide on how to register an app on Spotify:
 [Register an app](https://developer.spotify.com/documentation/general/guides/authorization/app-settings).
