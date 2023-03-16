@@ -45,7 +45,7 @@ function loadPlayer(name, artist, cover) {
   tracksList = tracks;
   const searchQuery = `${name} ${artist}`;
   console.log(searchQuery);
-  curr_track.src = `/music/${searchQuery
+  curr_track.src = `/api/music/play/${searchQuery
     .replace(/[\\/]/g, "")
     .toLowerCase()} audio`;
   curr_track.load();
