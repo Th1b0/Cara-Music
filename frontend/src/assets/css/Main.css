@@ -16,8 +16,8 @@ body {
 .loading::before {
   content: "";
   display: inline-block;
-  width: 200px;
-  height: 200px;
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   border: 10px solid #ccc;
   border-top-color: #333;

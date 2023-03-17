@@ -41,7 +41,7 @@ const Content = ({ playlist }) => {
     <div className="Content">
       <h2>{playlist?.playlist?.name}</h2>
       {isLoading ? (
-        <p>Loading...</p>
+        <div className="loading"></div>
       ) : (
         <div className="tracks_list">
           {songs.map((song) => (
