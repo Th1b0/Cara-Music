@@ -32,10 +32,14 @@ class MusicController {
       const end = ranges[0].end;
       res.status(206).header({
         "Content-Range": `bytes ${start}-${end}/${contentLength}`,
+        "Content-Length": end - start + 1,
       });
-      audio.pipe(res.status(206)).status(206);
+      audio
+        .pipe(res.status(206))
+        .status(206)
+        .set("Content-Length", end - start + 1);
     } else {
-      res.setHeader("Content-Disposition", "inline");
+      res.setHeader("Content-Length", contentLength);
       audio.pipe(res);
     }
   }
