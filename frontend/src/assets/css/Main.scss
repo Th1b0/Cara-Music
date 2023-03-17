@@ -4,4 +4,27 @@ body {
   margin: 0;
   padding: 0;
   background-color: #1a1a1a;
+  overflow-x: hidden;
 }
+.loading {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      .loading::before {
+        content: "";
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 10px solid #ccc;
+        border-top-color: #333;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
