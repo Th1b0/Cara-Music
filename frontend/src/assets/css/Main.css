@@ -28,4 +28,18 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ccc;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #0d0d0d;
+  border-radius: 15px;
 }/*# sourceMappingURL=Main.css.map */
