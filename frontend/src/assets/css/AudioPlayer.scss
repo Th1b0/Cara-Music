@@ -21,14 +21,27 @@
   justify-content: space-between;
 
 }
+.metadata_controls_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.30rem;
+}
 .meteData {
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
 }
 .title {
   margin: 0;
+  padding: 0;
 }
 .artist {
   margin: 0;
+  padding: 0;
+  font-size: 0.825rem;
 }
 .controls {
   margin-top: 1rem;

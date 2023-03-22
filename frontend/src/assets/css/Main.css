@@ -41,4 +41,15 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background-color: #0d0d0d;
+}
+
+.version {
+  color: gray;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 15vw;
+  margin-left: 1%;
+  padding: 0;
+  display: block;
 }/*# sourceMappingURL=Main.css.map */
