@@ -3,8 +3,8 @@
     margin: 0;
     padding: 0;
     margin-left:  15vw;
-    margin-bottom: 10vh;
-    width: 83.9vw;
+    margin-bottom: 25vh;
+    width: 85vw;
     overflow-x: hidden;
 }
 .Content h2 {
@@ -15,11 +15,12 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 2.5rem;
+    padding: 1rem;
 }
 .track {
     width: 175px;
     min-height: 315px;
-    margin: 20px;
     border: 1px solid #ccc;
     background-color: white;
     border-radius: 5px;
