@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import axios from "axios";
 import "../assets/css/Content.css";
+import AudioPlayer from "./AudioPlayer";
 
 const Content = ({ playlist }) => {
   const [songs, setSongs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedSong, setSelectedSong] = useState(null);
 
   const fetchTracks = async () => {
     if (playlist?.playlist?.id) {
@@ -38,27 +40,37 @@ const Content = ({ playlist }) => {
   }, [playlist]);
 
   return (
-    <div className="Content">
-      <h2>{playlist?.playlist?.name}</h2>
-      {isLoading ? (
-        <div className="loading"></div>
-      ) : (
-        <div className="tracks_list">
-          {songs.map((song) => (
-            <div className="track" key={song.id}>
-              <img className="cover" src={song.cover} alt={song.name} />
-              <div className="track_items">
-                <h4 className="track-name">{song.name}</h4>
-                <p className="track-artist">{song.artist}</p>
-                <p className="track-duration">
-                  {formatDuration(song.duration)}
-                </p>
+    <Fragment>
+      <div className="Content">
+        <h2>{playlist?.playlist?.name}</h2>
+        {isLoading ? (
+          <div className="loading"></div>
+        ) : (
+          <div className="tracks_list">
+            {songs.map((song) => (
+              <div
+                className="track"
+                key={song.id}
+                onClick={() => {
+                  setSelectedSong(song);
+                  console.log(song);
+                }}
+              >
+                <img className="cover" src={song.cover} alt={song.name} />
+                <div className="track_items">
+                  <h4 className="track-name">{song.name}</h4>
+                  <p className="track-artist">{song.artist}</p>
+                  <p className="track-duration">
+                    {formatDuration(song.duration)}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+            ))}
+          </div>
+        )}
+      </div>
+      {selectedSong && <AudioPlayer selectedSong={selectedSong} />}
+    </Fragment>
   );
 };
 
