@@ -1,0 +1,33 @@
+.Sidebar {
+  background-color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 15vw;
+  height: 100vh;
+  display: block; /* or display: inline-block */
+}
+
+.playlist_list {
+    color: white;
+    list-style-type: none; 
+    padding: 0;  
+    margin-inline: 10%;
+}
+.sidebar_menu {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+hr {
+    margin-bottom: 1rem;
+}
+
+.playlist_item {
+    color: gray;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+.playlist_item:hover {
+    color: white;
+}

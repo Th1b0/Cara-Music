@@ -6,13 +6,6 @@ const cookieParser = require("cookie-parser");
 const auth = require("./api/routes/authRoutes");
 const playlist = require("./api/routes/playlistRoutes");
 const music = require("./api/routes/musicRoutes");
-const frontendUser = require("./frontend/routes/userRoutes");
-const frontendAuth = require("./frontend/routes/authRoutes");
-
-app.use("/html", express.static(__dirname + "/frontend/public/html"));
-app.use("/css", express.static(__dirname + "/frontend/public/css"));
-app.use("/js", express.static(__dirname + "/frontend/public/js"));
-app.use("/img", express.static(__dirname + "/frontend/public/img"));
 
 app.use(cors());
 app.use(cookieParser());
@@ -20,13 +13,17 @@ app.set("json spaces", 2);
 app.use("/api/auth", auth);
 app.use("/api/playlist", playlist);
 app.use("/api/music", music);
-app.use("/user", frontendUser);
-app.use("/auth", frontendAuth);
-app.get("/", (req, res) => {
-  res.redirect("/user/profile");
-});
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log("Listening on http://localhost:3000");
+  const { exec } = require("child_process");
+  exec("git branch --show-current", (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(
+        `The current branch is ${stdout}and is used to develop new feautures. It may be unstable or incomplete.`
+      );
+    }
+  });
 });

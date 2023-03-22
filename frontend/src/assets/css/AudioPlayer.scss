@@ -1,0 +1,70 @@
+.AudioPlayer {
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  width: 85vw;
+  height: 20vh;
+  z-index: 999;
+   margin-left: 15vw;
+}
+.AudioPlayer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+}
+.audio_items {
+  min-width: 55vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.meteData {
+  color: white;
+}
+.title {
+  margin: 0;
+}
+.artist {
+  margin: 0;
+}
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  color: white;
+  justify-content: flex-start;
+  align-items: center;
+  .icon {
+    font-size: 1.05rem;
+    width: 1.5vw;
+  }
+}
+
+img {
+  height: 15vh;
+  width: auto;
+}
+.seekBar {
+  display: flex;
+  align-items: center;
+  margin-left: 3.5vw;
+  .currentTime {
+    width: 2.5vw;
+    text-align: center;
+  }
+  .duration {
+    width: 2.5vw;
+    text-align: center;
+  }
+  input {
+    width: 25vw;
+    color: gray;
+  }
+  input[type='range'] {
+     
+      accent-color: #1DB954;
+    }
+}

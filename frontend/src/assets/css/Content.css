@@ -1,0 +1,62 @@
+.Content {
+  color: white;
+  margin: 0;
+  padding: 0;
+  margin-left: 15vw;
+  margin-bottom: 25vh;
+  width: 85vw;
+  overflow-x: hidden;
+}
+
+.Content h2 {
+  text-align: center;
+}
+
+.tracks_list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1rem;
+}
+
+.track {
+  width: 150px;
+  min-height: 300px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.15s;
+  cursor: pointer;
+  color: black;
+}
+
+.track_items {
+  margin-inline: 10px;
+}
+
+.track img {
+  width: 100%;
+  height: auto;
+}
+
+.track-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.track-artist {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+.track-duration {
+  font-size: 10px;
+}
+
+.track:hover {
+  transform: scale(1.05);
+}/*# sourceMappingURL=Content.css.map */

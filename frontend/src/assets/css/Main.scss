@@ -1,0 +1,44 @@
+@import url("https://fonts.cdnfonts.com/css/circular-std");
+body {
+  font-family: "Circular Std", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  overflow-x: hidden;
+}
+.loading {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      .loading::before {
+        content: "";
+        display: inline-block;
+        width: 10vw;
+        height: 10vw;
+        border-radius: 50%;
+        border: 10px solid #ccc;
+        border-top-color: #333;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ccc;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #0d0d0d;
+}
