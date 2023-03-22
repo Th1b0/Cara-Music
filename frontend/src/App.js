@@ -6,9 +6,7 @@ import { Fragment } from "react";
 function App() {
   return (
     <Fragment>
-      <AudioPlayer />
       <Sidebar />
-      <Content />
     </Fragment>
   );
 }
