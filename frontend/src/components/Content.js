@@ -69,7 +69,9 @@ const Content = ({ playlist }) => {
           </div>
         )}
       </div>
-      {selectedSong && <AudioPlayer selectedSong={selectedSong} />}
+      {selectedSong && (
+        <AudioPlayer selectedSong={selectedSong} trackLists={null} />
+      )}
     </Fragment>
   );
 };
