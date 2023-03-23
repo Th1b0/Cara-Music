@@ -5,7 +5,7 @@ import { faFastForward } from "@fortawesome/free-solid-svg-icons";
 import { faFastBackward } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const AudioPlayer = ({ selectedSong }) => {
+const AudioPlayer = ({ selectedSong, setSelectedSong, tracksList }) => {
   const audioRef = useRef(null);
   const [artist, setArtist] = useState([]);
   const [title, setTitle] = useState([]);
@@ -13,7 +13,8 @@ const AudioPlayer = ({ selectedSong }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [isSeeking, setIsSeeking] = useState(false);
+  const [id, setId] = useState([]);
+  const [isSeeking, setIsSeeking] = useState([false]);
 
   useEffect(() => {
     if (selectedSong) {
@@ -22,6 +23,7 @@ const AudioPlayer = ({ selectedSong }) => {
       audioRef.current.addEventListener("canplay", () => {
         setDuration(audioRef.current.duration);
       });
+      audioRef.current.addEventListener("ended", handleNextTrack);
       audioRef.current.play();
 
       // Update title and artist
@@ -29,9 +31,46 @@ const AudioPlayer = ({ selectedSong }) => {
       setArtist(selectedSong.artist);
       setCover(selectedSong.cover);
       setIsPlaying(true);
+      setId(selectedSong.id);
     }
   }, [selectedSong]);
 
+  const handleNextTrack = () => {
+    const tracks_id = tracksList.map((track) => {
+      return `${track.name}${track.artist}${track.duration}`;
+    });
+    const currentIndex = tracks_id.indexOf(
+      `${selectedSong.name}${selectedSong.artist}${selectedSong.duration}`,
+      0
+    );
+    let nextTrack;
+    if (currentIndex + 2 > tracksList.length) {
+      nextTrack = tracksList[0];
+    } else {
+      nextTrack = tracksList[currentIndex + 1];
+    }
+
+    setSelectedSong(nextTrack);
+  };
+
+  const handlePrevTrack = () => {
+    const tracks_id = tracksList.map((track) => {
+      return `${track.name}${track.artist}${track.duration}`;
+    });
+    const currentIndex = tracks_id.indexOf(
+      `${selectedSong.name}${selectedSong.artist}${selectedSong.duration}`,
+      0
+    );
+    let prevTrack;
+    if (currentIndex - 1 < 0) {
+      prevTrack = tracksList[tracksList.length - 1];
+    } else {
+      prevTrack = tracksList[currentIndex - 1];
+    }
+
+    setSelectedSong(prevTrack);
+    console.log(prevTrack);
+  };
   const handlePlayPause = () => {
     if (audioRef.current.paused) {
       audioRef.current.play();
@@ -84,13 +123,21 @@ const AudioPlayer = ({ selectedSong }) => {
             <p className="artist">{artist}</p>
           </div>
           <div className="controls">
-            <FontAwesomeIcon className="icon" icon={faFastBackward} />
+            <FontAwesomeIcon
+              onClick={handlePrevTrack}
+              className="icon"
+              icon={faFastBackward}
+            />
             <FontAwesomeIcon
               className="icon"
               icon={isPlaying ? faPause : faPlay}
               onClick={handlePlayPause}
             />
-            <FontAwesomeIcon className="icon" icon={faFastForward} />
+            <FontAwesomeIcon
+              onClick={handleNextTrack}
+              className="icon"
+              icon={faFastForward}
+            />
             <div className="seekBar">
               <span className="currentTime">{formatTime(currentTime)}</span>
               <input
