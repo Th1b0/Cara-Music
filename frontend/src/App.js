@@ -1,7 +1,7 @@
 import Sidebar from "./components/Sidebar.js";
 import axios from "axios";
 import "./assets/css/Main.css";
-import { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 function App() {
   const [Authenticated, setAuthenticated] = useState([]);
