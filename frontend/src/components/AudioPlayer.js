@@ -73,7 +73,7 @@ const AudioPlayer = ({ selectedSong }) => {
   return (
     <div className="AudioPlayer">
       <div className="audio_items">
-        <div>
+        <div className="metadata_controls_container">
           <audio
             ref={audioRef}
             onTimeUpdate={handleTimeUpdate}
