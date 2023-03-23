@@ -50,7 +50,7 @@ const Content = ({ playlist }) => {
             {songs.map((song) => (
               <div
                 className="track"
-                key={song.id}
+                key={song.name}
                 onClick={() => {
                   setSelectedSong(song);
                   console.log(song);

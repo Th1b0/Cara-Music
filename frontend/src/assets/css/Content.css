@@ -22,15 +22,15 @@
 }
 
 .track {
-  width: 150px;
+  width: 160px;
   min-height: 300px;
   border: 1px solid #ccc;
-  background-color: white;
-  border-radius: 5px;
+  background-color: black;
+  border-radius: 25px;
   overflow: hidden;
   transition: 0.15s;
   cursor: pointer;
-  color: black;
+  color: white;
 }
 
 .track_items {

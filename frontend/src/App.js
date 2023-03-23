@@ -25,12 +25,22 @@ function App() {
   return (
     <Fragment>
       {!Authenticated && (
-        <div className="unauthorized">
-          <p>To try this application you need to login with spotify</p>
-          <a href="/api/auth/login" className="loginBtn">
-            Login with spotify
-          </a>
-        </div>
+        <Fragment>
+          <div className="unauthorized">
+            <p>
+              To try this application you need to login with spotify.
+              <br /> Why?
+              <br />
+              Because the app is still incomplete and can only stream music from
+              spotify playlists. No DATA is stored on music.thibokuijpers.be
+              servers.
+            </p>
+            <a href="/api/auth/login" className="loginBtn">
+              Login with spotify
+            </a>
+          </div>
+          <p className="version">v1.0.0-beta.1</p>
+        </Fragment>
       )}
       {Authenticated && (
         <Fragment>
