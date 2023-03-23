@@ -70,7 +70,11 @@ const Content = ({ playlist }) => {
         )}
       </div>
       {selectedSong && (
-        <AudioPlayer selectedSong={selectedSong} trackLists={null} />
+        <AudioPlayer
+          selectedSong={selectedSong}
+          setSelectedSong={setSelectedSong}
+          tracksList={songs}
+        />
       )}
     </Fragment>
   );
