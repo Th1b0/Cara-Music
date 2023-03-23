@@ -35,7 +35,7 @@ function App() {
       {Authenticated && (
         <Fragment>
           <Sidebar />
-          <p className="version">v1.0.1-alpha.1</p>
+          <p className="version">v1.0.0-beta.1</p>
         </Fragment>
       )}
     </Fragment>
