@@ -74,7 +74,7 @@ class AuthController {
           httpOnly: true,
           maxAge: 31_536_000_000,
         })
-        .redirect("/user/profile");
+        .redirect("/");
     } catch (error) {
       httpError(res, 400, null);
       console.log(error);
