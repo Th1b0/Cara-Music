@@ -35,6 +35,7 @@ The application works by querying the Spotify API for the user's playlists and t
 - Add download functionality for offline listening.
 - Add search functionality.
 - Optimize code to improve load times.
+- Add own authentication
 - Add user protection features.
 - Add YouTube Music connection to play music from YT Music playlists.
 - Add import playlists from other sources functionality.
@@ -67,18 +68,18 @@ Ensure that you have the latest stable version of Node.js and npm installed.
 
 1. Clone the Git repository: `git clone https://github.com/Th1b0/spotify.thibokuijpers.be.git`.
 2. Download all necessary packages for the app: `npm install`.
-3. Obtain a client ID and secret ID from Spotify and update the values in `/api/controller/authController.js:5`.
-4. Lastly update the callback url to the url you wish to use for the app for example `https://example.com/api/auth/callback` or `https://192.168.1.1/api/auth/callback`.
+3. Obtain a client ID and secret ID from Spotify and create a .env file in /backend
+4. Lastly enter the callback url to the url you wish to use for the app for example `https://example.com/api/auth/callback` or `https://192.168.1.1/api/auth/callback`. and client secret and client id
 
 ```js
-const client_secret = "HERE_COMES_CLIENTSECRET";
-const client_id = "HERE_COMES_CLIENTID";
-const callback_url = "http://localhost:3000/api/auth/callback";
+const client_secret = HERE_COMES_CLIENTSECRET
+const client_id = HERE_COMES_CLIENTID
+const callback_url = http://localhost:3000/api/auth/callback
 ```
 > To get a client ID and secret ID from Spotify, follow this guide on how to register an app on Spotify:
 [Register an app](https://developer.spotify.com/documentation/general/guides/authorization/app-settings).
 > Make sure the callback url matches the redirect url in the spotify app settings
-## Start the app
+## Start the backend
 To host the app you can use your own computer or an old computer used as a server and port forward it trough your home internet or another solution is to host it on a cloud server.
 ### steps
 1. You will need to navigate to the directory where the app lives.
@@ -90,7 +91,6 @@ To host the app you can use your own computer or an old computer used as a serve
 - Stop the app: `pm2 stop music.thibokuijpers.be`
 - Check status: `pm2 status`
 - Delete app from pm2: `pm2 delete music.thibokuijpers.be`
-
 ## License
 The application is licensed under the terms of the MIT Open Source license and is available for free.
 ## Links
