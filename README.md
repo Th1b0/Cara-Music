@@ -16,7 +16,7 @@
 
 ## Overview
 
-Music.thibokuijpers.be is a web application that enables users to stream music from YouTube Music and connect with Spotify to listen to their playlists. This free service provides users with a convenient way to enjoy their favorite music without any additional fees.
+MusicFreeFlow is a web application that enables users to stream music from YouTube Music and connect with Spotify to listen to their playlists. This free service provides users with a convenient way to enjoy their favorite music without any additional fees.
 
 ## Features
 
