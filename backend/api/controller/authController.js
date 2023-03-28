@@ -3,10 +3,18 @@ const axios = require("axios");
 const qs = require("qs");
 const dotenv = require("dotenv");
 dotenv.config();
+//Vars
 const client_secret = process.env.client_secret;
 const client_id = process.env.client_id;
 const callback_url = process.env.callback_url;
 class AuthController {
+  /**
+   * GET account data via the spotify api.
+   *
+   * @param {Object} req - The Express request object containing the acces token
+   * @param {Object} res - The Express response object.
+   * @returns {Array} with all the user information from spotify
+   */
   static async auth(req, res) {
     try {
       const access_token = req.access_token;
@@ -23,6 +31,14 @@ class AuthController {
       httpError(res, 401, null);
     }
   }
+
+  /**
+   * GET a redirect to the spotify login page
+   *
+   * @param {Object} req - The Express request object
+   * @param {Object} res - The Express response object
+   * @returns {Redirect} to the spotify consent screen
+   */
   static async login(req, res) {
     try {
       const scopes =
@@ -43,6 +59,14 @@ class AuthController {
       console.log(error);
     }
   }
+
+  /**
+   * GET an acces and refresh token from spotify
+   *
+   * @param {Object} req - The Express request object containing the code
+   * @param {Object} res - The Express response object.
+   * @returns {redirect} to the root pages
+   */
   static async callback(req, res) {
     try {
       const code = req.query.code || null;
@@ -80,6 +104,14 @@ class AuthController {
       console.log(error);
     }
   }
+
+  /**
+   * DELETE the acces token and refresh token cookies to logout
+   *
+   * @param {Object} req - The Express request object containing the acces and refresh token
+   * @param {Object} res - The Express response object.
+   * @returns {redirect} to the root path
+   */
   static async logout(req, res) {
     try {
       res.clearCookie("access_token");

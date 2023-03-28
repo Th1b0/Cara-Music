@@ -1,4 +1,16 @@
 class MusicController {
+  /**
+   * GET a song by metadata and stream it to the client using YouTube.
+   *
+   * @param {Object} req - The Express request object containing the query with the metedata
+   * @param {Object} res - The Express response object.
+   * @returns {Audio} An audio stream of the requested song.
+   *
+   * @todo Add caching, refactor error handling, and improve range request handling.
+   * @notes I don't think the range request are working correctly.
+   *
+   * @timefixing 2 hours
+   */
   static async playTrack(req, res) {
     const ytdl = require("ytdl-core");
     const rangeParser = require("range-parser");
@@ -38,8 +50,22 @@ class MusicController {
         .pipe(res.status(206))
         .status(206)
         .set("Content-Length", end - start + 1);
+      res.on("close", () => {
+        audio.destroy();
+      });
+      audio.on("error", (err) => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+      });
     } else {
       res.setHeader("Content-Length", contentLength);
+      res.on("close", () => {
+        audio.destroy();
+      });
+      audio.on("error", (err) => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+      });
       audio.pipe(res);
     }
   }

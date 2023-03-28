@@ -1,6 +1,13 @@
 const { httpError } = require("../helper/httpError");
 const { getNewaccess_token } = require("../helper/refreshAccesToken");
 
+/**
+ * Checks if the user is authenticated
+ *
+ * @param {Object} req - The Express request object containing the acces token and refresh token
+ * @param {Object} res - The Express response object.
+ * @returns {Function} to go to the destination route
+ */
 async function authenticate(req, res, next) {
   let access_token = req.cookies.access_token;
   const refresh_token = req.cookies.refresh_token;
