@@ -1,3 +1,11 @@
+/**
+ *Sets a error code and error message
+ *
+ * @param {Object} req - The Express request object || Null
+ * @param {Object} res - The Express response object.
+ * @param {Object} message - Error message || Null
+ * @returns {Array} with the error code and error message
+ */
 const httpError = (res, code, message) => {
   let error = {};
   switch (code) {

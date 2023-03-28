@@ -6,6 +6,7 @@ import { faFastBackward } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AudioPlayer = ({ selectedSong, setSelectedSong, tracksList }) => {
+  //Vars
   const audioRef = useRef(null);
   const [artist, setArtist] = useState([]);
   const [title, setTitle] = useState([]);
@@ -16,6 +17,7 @@ const AudioPlayer = ({ selectedSong, setSelectedSong, tracksList }) => {
   const [id, setId] = useState([]);
   const [isSeeking, setIsSeeking] = useState([false]);
 
+  //Query music and sets metedata
   useEffect(() => {
     if (selectedSong) {
       const query = `${selectedSong.name} ${selectedSong.artist}`;
@@ -24,6 +26,9 @@ const AudioPlayer = ({ selectedSong, setSelectedSong, tracksList }) => {
         setDuration(audioRef.current.duration);
       });
       audioRef.current.addEventListener("ended", handleNextTrack);
+      audioRef.current.addEventListener("pause", setIsPlaying(false));
+      audioRef.current.addEventListener("play", setIsPlaying(true));
+
       audioRef.current.play();
 
       // Update title and artist
@@ -35,6 +40,7 @@ const AudioPlayer = ({ selectedSong, setSelectedSong, tracksList }) => {
     }
   }, [selectedSong]);
 
+  //Next song
   const handleNextTrack = () => {
     const tracks_id = tracksList.map((track) => {
       return `${track.name}${track.artist}${track.duration}`;
@@ -53,6 +59,7 @@ const AudioPlayer = ({ selectedSong, setSelectedSong, tracksList }) => {
     setSelectedSong(nextTrack);
   };
 
+  //Prev song
   const handlePrevTrack = () => {
     const tracks_id = tracksList.map((track) => {
       return `${track.name}${track.artist}${track.duration}`;
@@ -71,6 +78,8 @@ const AudioPlayer = ({ selectedSong, setSelectedSong, tracksList }) => {
     setSelectedSong(prevTrack);
     console.log(prevTrack);
   };
+
+  //pause/play and sets icon
   const handlePlayPause = () => {
     if (audioRef.current.paused) {
       audioRef.current.play();

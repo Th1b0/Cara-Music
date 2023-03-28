@@ -3,6 +3,13 @@ const axios = require("axios");
 const qs = require("qs");
 
 class PlaylistController {
+  /**
+   * Get playlists by playlist ID.
+   *
+   * @param {Object} req - The request object containing the access_token.
+   * @param {Object} res - The response object.
+   * @returns {Array} An array of playlists containing playlist name, description, owner, cover, url, tracks, and id.
+   */
   static async get(req, res) {
     try {
       const access_token = req.access_token;
@@ -37,6 +44,14 @@ class PlaylistController {
       httpError(res, 401, null);
     }
   }
+
+  /**
+   * Get tracks by playlist ID.
+   *
+   * @param {Object} req - The request object containing the playlist_id and access_token.
+   * @param {Object} res - The response object.
+   * @returns {Array} An array of tracks containing track name, duration, artist, and cover.
+   */
   static async getTracks(req, res) {
     const MAX_TRACK_LIMIT = 50;
     const MAX_PLAYLIST_LIMIT = 100;
@@ -48,11 +63,8 @@ class PlaylistController {
       let offset = 0;
       let totalTracks = 1;
 
-      // Loop through all tracks in the playlist
       while (offset < totalTracks) {
         const tracksUrl = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
-
-        // Request tracks from Spotify API with max playlist limit
         const tracksResponse = await axios.get(tracksUrl, {
           headers: {
             Authorization: `Bearer ${access_token}`,
@@ -62,23 +74,14 @@ class PlaylistController {
             offset: offset,
           },
         });
-
         const tracksData = tracksResponse.data;
         const tracks = tracksData.items;
-
-        // Get the total number of tracks in the playlist if it's not available yet
         if (totalTracks === 1) {
           totalTracks = tracksData.total;
         }
-
-        // Create an array of track IDs for the current batch of tracks
         const trackIds = tracks.map((track) => track.track?.id).filter(Boolean);
-
-        // Loop through all the track IDs in batches of MAX_TRACK_LIMIT
         for (let i = 0; i < trackIds.length; i += MAX_TRACK_LIMIT) {
           const trackIdsSubset = trackIds.slice(i, i + MAX_TRACK_LIMIT);
-
-          // Request track details from Spotify API with max track limit
           const tracksDetailsUrl = "https://api.spotify.com/v1/tracks";
           const trackDetailsResponse = await axios.get(tracksDetailsUrl, {
             headers: {
@@ -91,23 +94,16 @@ class PlaylistController {
 
           const trackDetailsData = trackDetailsResponse.data;
           const trackDetails = trackDetailsData.tracks;
-
-          // Flatten the track details and add cover image
           const flattenedTracks = trackDetails.map((track) => ({
             name: track.name,
             duration: track.duration_ms,
             artist: track.artists.map((artist) => artist.name).join(", "),
             cover: track.album.images[0]?.url,
           }));
-
-          // Add the flattened tracks to the response array
           trackResponses.push(...flattenedTracks);
         }
-
-        // Increment the offset by the playlist limit for the next batch of tracks
         offset += MAX_PLAYLIST_LIMIT;
       }
-
       res.status(200).json(trackResponses);
     } catch (error) {
       console.error(error);
