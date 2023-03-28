@@ -91,6 +91,15 @@ To host the app you can use your own computer or an old computer used as a serve
 - Stop the app: `pm2 stop music.thibokuijpers.be`
 - Check status: `pm2 status`
 - Delete app from pm2: `pm2 delete music.thibokuijpers.be`
+
+## Build and serve the frontend
+For serving the frontend you can use something like nginx or npm serve
+
+### Steps
+ 1. cd into the frontend directory
+ 2. Build the frontend by doing `npm build`
+ 3. Serve the app configuring your favourite http server or do `serve -s build` if you have serve installed
+
 ## License
 The application is licensed under the terms of the MIT Open Source license and is available for free.
 ## Links
