@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>music.thibokuijpers.be</h1>
-  <h2> First version under development</h2>
+  <h1>MusicFreeFlow</h1>
+  <h2>First version under development</h2>
 </div>
 
 <div align="center">
