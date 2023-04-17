@@ -29,18 +29,24 @@ The application works by querying the Spotify API for the user's playlists and t
 
 ## Future Plans
 
+###  App feautures
 - Rewrite the code using better frameworks and strategies suited for our use cases.
 - Add more basic functionality and fix known bugs.
 - Add download functionality for offline listening.
 - Add search functionality.
+- Add spotify connection is not obliged.
 - Optimize code to improve load times.
 - Add own authentication
 - Add user protection features.
 - Add YouTube Music connection to play music from YT Music playlists.
-- Add import playlists from other sources functionality.
 - Add playlist manager for YT Music and Spotify.
+- Add import playlists from other sources functionality.
 - Develop an android app
 - Develop an IOS app
+
+### Selfhosting
+- Automate deployment.
+- Docker image.
 
 ## How to Use It
 
@@ -68,7 +74,7 @@ Ensure that you have the latest stable version of Node.js and npm installed.
 1. Clone the Git repository: `git clone https://github.com/Th1b0/spotify.thibokuijpers.be.git`.
 2. Download all necessary packages for the app by doing `cd /backend` then `npm install` and `cd ..` then `cd /frontend` then `npm install`
 3. Obtain a client ID and secret ID from Spotify and create a .env file in /backend
-4. Lastly enter the callback url to the url you wish to use for the app for example `https://example.com/api/auth/callback` or `https://192.168.1.1/api/auth/callback`. and client secret and client id
+4. Lastly enter the callback url to the url you wish to use for the app for example `https://example.com/api/auth/callback` or `https://192.168.1.1/api/auth/callback`. and client secret and client id you got from spotify
 
 ```js
 const client_secret = HERE_COMES_CLIENTSECRET
@@ -84,6 +90,7 @@ To host the app you can use your own computer or an old computer used as a serve
 1. You will need to navigate to the directory where the app lives.
 2. You can start it by doing `node index.js` or `npm start`, but an approach that I more like is by starting it with pm2 `pm2 start index.js -n music.thibokuijpers.be`. If pm2 is not installed you can install it by doing `npm install pm2 -g`.
 3. Once started you can open a browser and navigate to the ip or domain of the server.
+> The app will start on port 3001, but you can change it to whatever you want.
 
 ### Usefull pm2 commands
 - Start the app: `pm2 start music.thibokuijpers.be`
@@ -98,6 +105,7 @@ For serving the frontend you can use something like nginx or npm serve
  1. cd into the frontend directory
  2. Build the frontend by doing `npm build`
  3. Serve the app configuring your favourite http server or do `serve -s build` if you have serve installed
+> The app will start on port 3000, but you can change it to whatever you want.
 
 ## License
 The application is licensed under the terms of the MIT Open Source license and is available for free.
