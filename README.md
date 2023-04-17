@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>MusicFreeFlow</h1>
+  <h1>CaraMia</h1>
 </div>
 
 <div align="center">
@@ -15,7 +15,7 @@
 
 ## Overview
 
-MusicFreeFlow is a web application that enables users to stream music from YouTube Music and connect with Spotify to listen to their playlists. This free service provides users with a convenient way to enjoy their favorite music without any additional fees.
+CaraMia is a web application that enables users to stream music from YouTube Music and connect with Spotify to listen to their playlists. This free service provides users with a convenient way to enjoy their favorite music without any additional fees.
 
 ## Features
 
