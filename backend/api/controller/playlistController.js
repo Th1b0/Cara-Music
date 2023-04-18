@@ -24,13 +24,14 @@ class PlaylistController {
         },
       });
       const data = response.data.items;
+      console.log(data[3].images[0].url);
       const playlist = data.map((playlist) => {
         return {
           playlist: {
             name: playlist.name,
             description: playlist.description,
             owner: playlist.owner,
-            cover: playlist.images[0].url,
+            cover: playlist.images[0],
             url: playlist.external_urls.spotify,
             tracks: playlist.tracks,
             id: playlist.id,
@@ -41,7 +42,7 @@ class PlaylistController {
       return res.json(playlist);
     } catch (error) {
       console.log(error);
-      httpError(res, 401, null);
+      httpError(res, 401, error.message);
     }
   }
 

@@ -21,7 +21,7 @@ const AudioPlayer = ({ selectedSong, setSelectedSong, tracksList }) => {
   useEffect(() => {
     if (selectedSong) {
       const query = `${selectedSong.name} ${selectedSong.artist}`;
-      audioRef.current.src = `/api/music/play/${query.replace(/\//g, "-")}`;
+      audioRef.current.src = `http://localhost:3001/api/music/play/${query.replace(/\//g, "-")}`;
       audioRef.current.addEventListener("canplay", () => {
         setDuration(audioRef.current.duration);
       });

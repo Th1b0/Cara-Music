@@ -10,7 +10,8 @@ function App() {
     try {
       const response = await axios({
         method: "get",
-        url: "/api/auth",
+        url: "http://localhost:3001/api/auth",
+        withCredentials: true,
       });
       if (response.data.code == "200") {
         setAuthenticated(true);
@@ -35,7 +36,7 @@ function App() {
               spotify playlists. No DATA is stored on music.thibokuijpers.be
               servers.
             </p>
-            <a href="/api/auth/login" className="loginBtn">
+            <a href="http://localhost:3001/api/auth/login" className="loginBtn">
               Login with spotify
             </a>
           </div>

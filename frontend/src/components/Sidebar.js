@@ -13,7 +13,8 @@ const Sidebar = () => {
     try {
       const response = await axios({
         method: "get",
-        url: "/api/playlist",
+        url: "http://localhost:3001/api/playlist",
+        withCredentials: true,
       });
       setPlaylist(response.data);
     } catch (error) {
