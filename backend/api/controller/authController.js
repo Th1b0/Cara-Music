@@ -18,6 +18,7 @@ class AuthController {
   static async auth(req, res) {
     try {
       const access_token = req.access_token;
+      console.log(access_token);
       const response = await axios({
         method: "get",
         url: "https://api.spotify.com/v1/me",
@@ -92,13 +93,13 @@ class AuthController {
       return res
         .cookie("access_token", access_token, {
           httpOnly: true,
-          maxAge: expires * 1_000,
+          maxAge: 3600 * 1000,
         })
         .cookie("refresh_token", refresh_token, {
           httpOnly: true,
           maxAge: 31_536_000_000,
         })
-        .redirect("/");
+        .redirect("http://localhost:3000");
     } catch (error) {
       httpError(res, 400, null);
       console.log(error);

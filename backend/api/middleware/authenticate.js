@@ -10,6 +10,7 @@ const { getNewaccess_token } = require("../helper/refreshAccesToken");
  */
 async function authenticate(req, res, next) {
   let access_token = req.cookies.access_token;
+  console.log(access_token);
   const refresh_token = req.cookies.refresh_token;
   if (!refresh_token) return httpError(res, 401, null);
   if (!access_token) {
@@ -18,6 +19,9 @@ async function authenticate(req, res, next) {
       res.cookie("access_token", access_token, {
         httpOnly: true,
         maxAge: 3600 * 1000,
+        domain: "localhost:3000", // Set the domain to 'localhost' to allow access from all subdomains
+        secure: false, // Set to 'true' if using HTTPS
+        sameSite: "none", // Set to 'none' if allowing cross-origin requests
       });
       req.access_token = access_token;
       return next();
