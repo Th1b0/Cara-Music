@@ -14,7 +14,8 @@ const Content = ({ playlist }) => {
       try {
         const response = await axios({
           method: "get",
-          url: `/api/playlist/${playlist.playlist.id}/tracks`,
+          url: `http://localhost:3001/api/playlist/${playlist.playlist.id}/tracks`,
+          withCredentials: true,
         });
         setSongs(response.data);
       } catch (error) {
