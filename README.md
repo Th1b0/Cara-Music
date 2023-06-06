@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>CaraMia</h1>
+  <h1>Cara Music</h1>
 </div>
 
 <div align="center">
