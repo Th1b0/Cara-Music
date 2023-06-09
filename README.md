@@ -17,6 +17,34 @@
 
 Cara Music is a web application that enables users to stream music from YouTube Music and connect with Spotify to listen to their playlists. This free service provides users with a convenient way to enjoy their favorite music without any additional fees.
 
+## State of Cara Music
+
+At present, this project is being approached with a more serious mindset. Cara Music will be rewritten using high-quality frameworks that are better suited for seamless integration. The codebase will be improved to ensure better quality, enabling this simple project to evolve into a complex application with numerous functionalities. Furthermore, special attention will be given to optimizing performance and facilitating effortless deployment, even allowing users to easily host it on free platforms without any additional costs. Additionally, I will be initiating the development of a mobile app that won't require a server and can be conveniently downloaded from third-party app stores.
+
+### What am i doing now?
+
+Currently, I am in the process of designing the web application and mapping out the user flow. Simultaneously, I am focusing on establishing the interaction and coordination between the client and server components. Moreover, I am actively involved in designing and testing exciting features, with the aim of integrating them seamlessly across multiple backend and frontend frameworks and libraries. This iterative process allows me to explore various possibilities and ensure a robust and comprehensive implementation.
+
+### What will the changes be?
+
+Firstly, I developed this project in under a week without a specific objective, utilizing HTML, CSS, vanilla JavaScript, and a Node.js Express server. Subsequently, React was introduced to enhance the project and facilitate the implementation of more advanced features. In order to elevate the overall quality of the project, enhance the developer experience, and reduce code complexity, I have made the decision to incorporate the following technologies:
+
+__Frontend__:
+- Svelte
+- Tailwindcss
+- Scss
+- Typescript
+
+__Backend__:
+- Sveltekit
+- MongoDB (Not sure)
+- Typescript
+
+__Third party APIs__
+- Spotify
+- Github
+- Google oAuth 2.0
+
 ## Features
 
 - Stream music from YouTube Music
@@ -25,7 +53,7 @@ Cara Music is a web application that enables users to stream music from YouTube 
 
 ## How it Works
 
-The application works by querying the Spotify API for the user's playlists and the tracks within them. The tracks are then rendered on the site. When a user selects a track to play, the server looks for it on YouTube. If the Spotify track and the YouTube track match, it is streamed from YouTube Music to the app.
+The application works by querying the Spotify API for the user's playlists and the tracks within them. The tracks are then rendered on the site. When a user selects a track to play, the server looks for it on YouTube Music. If the Spotify track and the YouTube track match, it is streamed from YouTube Music to the app.
 
 ## Future Plans
 
